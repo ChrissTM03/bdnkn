@@ -1,0 +1,195 @@
+/* Variables para modo claro y oscuro */
+:root {
+    --bg-light: #f4f6fa;
+    --bg-dark: #181c24;
+    --text-light: #222;
+    --text-dark: #f4f6fa;
+    --primary: #6c63ff;
+    --secondary: #ffb347;
+    --card-bg-light: #fff;
+    --card-bg-dark: #23283a;
+    --border-radius: 16px;
+    --transition: 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+body {
+    background: var(--bg-light);
+    color: var(--text-light);
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    transition: background var(--transition), color var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+h1 {
+    margin-top: 2rem;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    color: var(--primary);
+    animation: fadeInDown 1s;
+}
+
+input[type="file"] {
+    margin: 2rem 0 1rem 0;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border: 2px dashed var(--primary);
+    background: transparent;
+    color: inherit;
+    transition: border-color var(--transition);
+    outline: none;
+}
+
+input[type="file"]:focus {
+    border-color: var(--secondary);
+}
+
+button {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 16px rgba(108,99,255,0.08);
+    transition: background var(--transition), transform var(--transition);
+    animation: fadeInUp 1s;
+}
+
+button:hover {
+    background: var(--secondary);
+    color: #222;
+    transform: translateY(-2px) scale(1.03);
+}
+
+#results {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 2rem auto;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    background: var(--card-bg-light);
+    box-shadow: 0 2px 24px rgba(0,0,0,0.07);
+    animation: fadeIn 1.2s;
+    transition: background var(--transition), color var(--transition);
+}
+
+#results h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+#results p {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    background: rgba(108,99,255,0.07);
+    transition: background var(--transition);
+    animation: fadeInUp 1s;
+}
+
+@media (max-width: 600px) {
+    #results {
+        padding: 1rem;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    button {
+        width: 100%;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: var(--bg-dark);
+        color: var(--text-dark);
+    }
+    #results {
+        background: var(--card-bg-dark);
+        color: var(--text-dark);
+        box-shadow: 0 2px 24px rgba(0,0,0,0.25);
+    }
+    input[type="file"] {
+        border-color: var(--secondary);
+        color: var(--text-dark);
+    }
+    button {
+        background: var(--secondary);
+        color: #222;
+    }
+    button:hover {
+        background: var(--primary);
+        color: #fff;
+    }
+    #results h2 {
+        color: var(--secondary);
+    }
+    #results p {
+        background: rgba(255,179,71,0.10);
+    }
+}
+#details {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 2rem auto;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    background: var(--card-bg-light);
+    box-shadow: 0 2px 24px rgba(0,0,0,0.07);
+    animation: fadeIn 1.2s;
+    transition: background var(--transition), color var(--transition);
+}
+
+#details h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.group-detail {
+    margin-bottom: 1.5rem;
+}
+
+.group-detail ul {
+    margin: 0.5rem 0 0 1.5rem;
+    padding: 0;
+    list-style: disc;
+    color: var(--text-light);
+}
+
+@media (prefers-color-scheme: dark) {
+    #details {
+        background: var(--card-bg-dark);
+        color: var(--text-dark);
+        box-shadow: 0 2px 24px rgba(0,0,0,0.25);
+    }
+    .group-detail ul {
+        color: var(--text-dark);
+    }
+}
