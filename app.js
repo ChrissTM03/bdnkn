@@ -6,6 +6,23 @@ const GROUPS = [
     "Delivery Rappi"
 ];
 
+const CORRECT_PASSWORD = "2519712"; // Cambia esto por la contraseña que desees
+
+window.onload = function() {
+    document.body.style.overflow = 'hidden'; // Evita scroll mientras el modal está activo
+};
+
+window.checkPassword = function() {
+    const input = document.getElementById('passwordInput').value;
+    if (input === CORRECT_PASSWORD) {
+        document.getElementById('passwordModal').style.display = 'none';
+        document.body.style.overflow = '';
+        document.getElementById('mainContent').style.display = 'block'; // Mostrar contenido
+    } else {
+        document.getElementById('passwordError').style.display = 'block';
+    }
+};
+
 async function analyzePDFs() {
     const input = document.getElementById('pdfInput');
     const files = Array.from(input.files);
