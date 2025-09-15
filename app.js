@@ -1,6 +1,7 @@
 const GROUPS = [
     "Efectivo Dorado",
     "Efectivo Isla Coral Salitre",
+    "Efectivo Isla Coral",
     "Medianet Dorado",
     "Delivery Pedidos Ya",
     "Delivery Uber",
@@ -118,4 +119,5 @@ async function analyzePDFs() {
     }
     detailDiv.innerHTML = detailHtml;
 }
+
 
